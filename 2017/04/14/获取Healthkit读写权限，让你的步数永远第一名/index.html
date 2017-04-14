@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>陈浩的blog</title>
+  <title>获取Healthkit读写权限，让你的步数永远第一名 | 陈浩的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。 首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为string类型 ，获取权     限说">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="陈浩的blog">
+<meta property="og:title" content="获取Healthkit读写权限，让你的步数永远第一名">
 <meta property="og:url" content="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/index.html">
 <meta property="og:site_name" content="陈浩的blog">
 <meta property="og:description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。 首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为string类型 ，获取权     限说">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-Qu4x_hsVGZY/WPCIUZEId0I/AAAAAAAAAAM/QKgVeeoHtGkcsxWT8twNNRgdn3n5U6abgCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.15.46.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-WcnjEqjjARw/WPCKjtuJ8iI/AAAAAAAAAAo/uDhLD9gG9nsKCeWRVzsvGNi3KMbI3Q5FgCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.37.04.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-2R76ecZhMRw/WPCMuIbyDWI/AAAAAAAAABE/ptD8R9DRyIcSe2BUy-85KsZDLZeusUSqACLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.46.48.png">
-<meta property="og:updated_time" content="2017-04-14T08:59:00.000Z">
+<meta property="og:updated_time" content="2017-04-14T09:11:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈浩的blog">
+<meta name="twitter:title" content="获取Healthkit读写权限，让你的步数永远第一名">
 <meta name="twitter:description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。 首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为string类型 ，获取权     限说">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/-Qu4x_hsVGZY/WPCIUZEId0I/AAAAAAAAAAM/QKgVeeoHtGkcsxWT8twNNRgdn3n5U6abgCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.15.46.png">
   
@@ -63,7 +63,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://mousechen.com"></form>
@@ -81,6 +81,16 @@
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      获取Healthkit读写权限，让你的步数永远第一名
+    </h1>
+  
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -100,7 +110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/" data-id="cj1hlndal0000pnxaphakrxyy" class="article-share-link">Share</a>
+      <a data-url="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/" data-id="cj1hm51920000v5xa8rk8c9t2" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -110,7 +120,7 @@
 <nav id="article-nav">
   
     <a href="/2017/04/11/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Nieuwer</strong>
       <div class="article-nav-title">
         
           Hello World
@@ -138,7 +148,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li></ul>
     </div>
@@ -148,12 +158,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/">(no title)</a>
+            <a href="/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/">获取Healthkit读写权限，让你的步数永远第一名</a>
           </li>
         
           <li>
