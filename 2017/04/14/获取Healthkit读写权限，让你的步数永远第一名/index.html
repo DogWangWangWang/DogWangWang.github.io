@@ -5,25 +5,23 @@
     
     <title>获取Healthkit读写权限，让你的步数永远第一名 | 陈浩的blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。 首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为string类型 ，获取权     限说">
+    <meta name="description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。&amp;lt;!-- more --&amp;gt;  首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="获取Healthkit读写权限，让你的步数永远第一名">
 <meta property="og:url" content="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/index.html">
 <meta property="og:site_name" content="陈浩的blog">
-<meta property="og:description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。 首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为string类型 ，获取权     限说">
+<meta property="og:description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。&amp;lt;!-- more --&amp;gt;  首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-Qu4x_hsVGZY/WPCIUZEId0I/AAAAAAAAAAM/QKgVeeoHtGkcsxWT8twNNRgdn3n5U6abgCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.15.46.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-WcnjEqjjARw/WPCKjtuJ8iI/AAAAAAAAAAo/uDhLD9gG9nsKCeWRVzsvGNi3KMbI3Q5FgCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.37.04.png">
 <meta property="og:image" content="https://lh3.googleusercontent.com/-2R76ecZhMRw/WPCMuIbyDWI/AAAAAAAAABE/ptD8R9DRyIcSe2BUy-85KsZDLZeusUSqACLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.46.48.png">
-<meta property="og:updated_time" content="2017-04-14T09:11:15.000Z">
+<meta property="og:updated_time" content="2017-05-04T08:08:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="获取Healthkit读写权限，让你的步数永远第一名">
-<meta name="twitter:description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。 首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为string类型 ，获取权     限说">
+<meta name="twitter:description" content="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。&amp;lt;!-- more --&amp;gt;  首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限  1、Privacy - Health Update Usage Description 后面为">
 <meta name="twitter:image" content="https://lh3.googleusercontent.com/-Qu4x_hsVGZY/WPCIUZEId0I/AAAAAAAAAAM/QKgVeeoHtGkcsxWT8twNNRgdn3n5U6abgCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.15.46.png">
     
 
-    
-        <link rel="alternate" href="/" title="陈浩的blog" type="application/atom+xml" />
     
 
     
@@ -60,15 +58,15 @@
             </a>
             <nav id="main-nav">
                 
-                    <a class="main-nav-link" href="/.">Home</a>
+                    <a class="main-nav-link" href="/.">主页</a>
                 
-                    <a class="main-nav-link" href="/archives">Archives</a>
+                    <a class="main-nav-link" href="/archives">时间轴</a>
                 
-                    <a class="main-nav-link" href="/categories">Categories</a>
+                    <a class="main-nav-link" href="/categories">分类</a>
                 
-                    <a class="main-nav-link" href="/tags">Tags</a>
+                    <a class="main-nav-link" href="/tags">标签</a>
                 
-                    <a class="main-nav-link" href="/about">About</a>
+                    <a class="main-nav-link" href="/about">关于我</a>
                 
             </nav>
             
@@ -76,7 +74,7 @@
                 <nav id="sub-nav">
                     <div class="profile" id="profile-nav">
                         <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/avatar.png" />
+                            <img class="avatar" src="/css/images/myPhoto.png" />
                             <i class="fa fa-caret-down"></i>
                         </a>
                     </div>
@@ -85,7 +83,7 @@
             <div id="search-form-wrap">
 
     <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
         <button type="submit" class="search-form-submit"></button>
     </form>
     <div class="ins-search">
@@ -104,10 +102,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
+            POSTS: 'Entradas',
             PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            CATEGORIES: 'Categorias',
+            TAGS: 'Etiquetas',
             UNTITLED: '(Untitled)',
         },
         ROOT_URL: '/',
@@ -125,20 +123,20 @@
         <table class="menu outer">
             <tr>
                 
-                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                    <td><a class="main-nav-link" href="/.">主页</a></td>
                 
-                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                    <td><a class="main-nav-link" href="/archives">时间轴</a></td>
                 
-                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
                 
-                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
                 
-                    <td><a class="main-nav-link" href="/about">About</a></td>
+                    <td><a class="main-nav-link" href="/about">关于我</a></td>
                 
                 <td>
                     
     <div class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <input type="text" class="ins-search-input search-form-input" placeholder="Buscar" />
     </div>
 
                 </td>
@@ -154,20 +152,20 @@
 <aside id="profile">
     <div class="inner profile-inner">
         <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/avatar.png" />
+            <img id="avatar" src="/css/images/myPhoto.png" />
             <h2 id="name">DogWangWangWang</h2>
             <h3 id="title">mousechen的blog</h3>
             <span id="location"><i class="fa fa-map-marker"></i>HangZhou, China</span>
-            <a id="follow" target="_blank" href="https://www.mousechen.com">FOLLOW</a>
+            <a id="follow" target="_blank" href="https://github.com/DogWangWangWang">SEGUIR</a>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
                 3
-                <span>posts</span>
+                <span>Entradas</span>
             </div>
             <div class="article-info-block">
                 0
-                <span>tag</span>
+                <span>Etiqueta</span>
             </div>
         </div>
         
@@ -179,30 +177,6 @@
                     <td>
                         <a href="https://github.com/DogWangWangWang" target="_blank" title="github" class=tooltip>
                             <i class="fa fa-github"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="twitter" class=tooltip>
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="facebook" class=tooltip>
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="dribbble" class=tooltip>
-                            <i class="fa fa-dribbble"></i>
-                        </a>
-                    </td>
-                    
-                    <td>
-                        <a href="/" target="_blank" title="rss" class=tooltip>
-                            <i class="fa fa-rss"></i>
                         </a>
                     </td>
                     
@@ -247,7 +221,8 @@
         <div class="article-entry" itemprop="articleBody">
         
             
-            <h4 id="最近闲来无事-发现iOS的步数与距离是可读写的-喜欢钻（装）研-比-的我立马开始研究了一下-历经三小时终于将原理搞清了大概-下面让我说一下自己的研究。"><a href="#最近闲来无事-发现iOS的步数与距离是可读写的-喜欢钻（装）研-比-的我立马开始研究了一下-历经三小时终于将原理搞清了大概-下面让我说一下自己的研究。" class="headerlink" title="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。"></a>最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。</h4><ol>
+            <h4 id="最近闲来无事-发现iOS的步数与距离是可读写的-喜欢钻（装）研-比-的我立马开始研究了一下-历经三小时终于将原理搞清了大概-下面让我说一下自己的研究。"><a href="#最近闲来无事-发现iOS的步数与距离是可读写的-喜欢钻（装）研-比-的我立马开始研究了一下-历经三小时终于将原理搞清了大概-下面让我说一下自己的研究。" class="headerlink" title="最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。"></a>最近闲来无事 发现iOS的步数与距离是可读写的 喜欢钻（装）研(比)的我立马开始研究了一下 历经三小时终于将原理搞清了大概 下面让我说一下自己的研究。</h4><pre><code>&lt;!-- more --&gt;
+</code></pre><ol>
 <li><p>首先系统的东西，第一反应是先获取权限，这是苹果一惯的习(尿)惯(性),首先需要我们在plist文件添加两个权限</p>
 <blockquote>
 <p>1、Privacy - Health Update Usage Description 后面为string类型 ，获取权     限说明<br>2、Privacy - Health Share Usage Description 同上<br><img src="https://lh3.googleusercontent.com/-Qu4x_hsVGZY/WPCIUZEId0I/AAAAAAAAAAM/QKgVeeoHtGkcsxWT8twNNRgdn3n5U6abgCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-04-14+%25E4%25B8%258B%25E5%258D%25884.15.46.png" alt="权限添加" title="屏幕快照 2017-04-14 下午4.15.46.png"></p>
@@ -269,7 +244,7 @@
 
 </div>
 
-    <a data-url="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/" data-id="cj2a3mc2l0001qaxaoxgukmnk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/" data-id="cj2a4ok2w000183xa65550pzi" class="article-share-link"><i class="fa fa-share"></i>Compartir</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -337,7 +312,7 @@
 
             
     
-        <a href="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/">Comments</a>
+        <a href="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://mousechen.com/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/">Comentarios</a>
     
 
         </footer>
@@ -347,7 +322,7 @@
 <nav id="article-nav">
     
         <a href="/2017/04/11/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
+            <strong class="article-nav-caption">Más nuevo</strong>
             <div class="article-nav-title">
                 
                     Hello World
@@ -357,7 +332,7 @@
     
     
         <a href="/2017/05/04/“关于UISearchController的释放问题”/" id="article-nav-older" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Older</strong>
+            <strong class="article-nav-caption">Más viejo</strong>
             <div class="article-nav-title">“关于UISearchController的释放问题”</div>
         </a>
     
@@ -385,7 +360,7 @@
    
         
     <div class="widget-wrap">
-        <h3 class="widget-title">recent</h3>
+        <h3 class="widget-title">Recientes</h3>
         <div class="widget">
             <ul id="recent-post" class="">
                 
@@ -455,7 +430,7 @@
     
         
     <div class="widget-wrap">
-        <h3 class="widget-title">archives</h3>
+        <h3 class="widget-title">Archivos</h3>
         <div class="widget">
             <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li></ul>
         </div>
@@ -468,7 +443,7 @@
     
         
     <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
+        <h3 class="widget-title">Links</h3>
         <div class="widget">
             <ul>
                 
@@ -505,7 +480,7 @@
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.src = '//' + 'mousechen-1' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
