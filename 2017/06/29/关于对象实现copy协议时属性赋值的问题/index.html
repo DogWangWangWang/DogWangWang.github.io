@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -90,15 +90,20 @@
 
 
 
-<meta name="description" content="一个iOSdeveloper">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陈浩的blog">
-<meta property="og:url" content="http://mousechen.com/archives/2017/05/index.html">
+<meta name="description" content="我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc.model = self.model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候 ，由于self.model与vc.model指向同一个对象，会让self.model跟着改变，那当我们pop会这个界面时 ，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于copy协议中如何简便的为对象赋值">
+<meta property="og:url" content="http://mousechen.com/2017/06/29/关于对象实现copy协议时属性赋值的问题/index.html">
 <meta property="og:site_name" content="陈浩的blog">
-<meta property="og:description" content="一个iOSdeveloper">
+<meta property="og:description" content="我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc.model = self.model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候 ，由于self.model与vc.model指向同一个对象，会让self.model跟着改变，那当我们pop会这个界面时 ，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-oQ-Ys0dGYnQ/WVRw1DuzPQI/AAAAAAAAACA/6qGJby_sZwI-Sc2Xrie9hTijhuiNcyOfgCLcBGAs/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-06-22+%25E4%25B8%258B%25E5%258D%25884.14.18.png">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-BQyccu_D3SU/WVR1ddl7g5I/AAAAAAAAACQ/iGa4b_4anzM0PsKCX-da5uVZguXdG59igCLcBGAs/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-06-22+%25E4%25B8%258B%25E5%258D%25884.14.32.png">
+<meta property="og:updated_time" content="2017-06-29T03:50:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈浩的blog">
-<meta name="twitter:description" content="一个iOSdeveloper">
+<meta name="twitter:title" content="关于copy协议中如何简便的为对象赋值">
+<meta name="twitter:description" content="我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc.model = self.model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候 ，由于self.model与vc.model指向同一个对象，会让self.model跟着改变，那当我们pop会这个界面时 ，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/-oQ-Ys0dGYnQ/WVRw1DuzPQI/AAAAAAAAACA/6qGJby_sZwI-Sc2Xrie9hTijhuiNcyOfgCLcBGAs/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-06-22+%25E4%25B8%258B%25E5%258D%25884.14.18.png">
 
 
 
@@ -126,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://mousechen.com/archives/2017/05/"/>
+  <link rel="canonical" href="http://mousechen.com/2017/06/29/关于对象实现copy协议时属性赋值的问题/"/>
 
 
 
 
 
-  <title>归档 | 陈浩的blog</title>
+  <title>关于copy协议中如何简便的为对象赋值 | 陈浩的blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -167,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -480,66 +485,188 @@ O.push(A)
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 5 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://mousechen.com/2017/06/29/关于对象实现copy协议时属性赋值的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DogWangWangWang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈浩的blog">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于copy协议中如何简便的为对象赋值</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-29T11:40:08+08:00">
+                2017-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+       
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h5 id="我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc-model-self-model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候-，由于self-model与vc-model指向同一个对象，会让self-model跟着改变，那当我们pop会这个界面时-，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢？"><a href="#我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc-model-self-model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候-，由于self-model与vc-model指向同一个对象，会让self-model跟着改变，那当我们pop会这个界面时-，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢？" class="headerlink" title="我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc.model = self.model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候 ，由于self.model与vc.model指向同一个对象，会让self.model跟着改变，那当我们pop会这个界面时 ，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢？"></a>我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc.model = self.model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候 ，由于self.model与vc.model指向同一个对象，会让self.model跟着改变，那当我们pop会这个界面时 ，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢？</h5><ol>
+<li>这个时候我们就需要重新生成一个对象了，使用copy来实现，如果我们使用的是foundation框架的对象时候是直接可以的(比如NSArray,NSDictionary)，因为所有类都已经实现了NSCopying协议，当我们使用自己创建的类的时候，就需要自己来实现该协议了。具体怎么做呢？ <a id="more"></a>
+<ol>
+<li>实现NSCopying协议   <pre><code class="oc">&lt;p&gt;@interface RecipeDetailModel:BaseModel&lt;NSCopying&gt;&lt;/p&gt;
+</code></pre>
+</li>
+<li>实现协议方法<pre><code class="oc">&lt;p&gt;-(id)copyWithZone:(NSZone *)zone{
+RecipeDetailModel *model = [[[self class] allocWithZone:zone]init]; 
+return model;}
+&lt;/p&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li>当然因为是新开辟的对象  需要我们手动赋值，这个时候问题来了，如果属性过多，会这样:<img src="https://lh3.googleusercontent.com/-oQ-Ys0dGYnQ/WVRw1DuzPQI/AAAAAAAAACA/6qGJby_sZwI-Sc2Xrie9hTijhuiNcyOfgCLcBGAs/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-06-22+%25E4%25B8%258B%25E5%258D%25884.14.18.png" alt="图" title="example.png"> ，当然这样写也没问题，但是作为一个以写简洁代码为目标的我（和很多程序员）忍不了，所以我开始思考有没有其他方式</li>
+<li>结果想到的就是利用runtime来实现，通过class_copyPropertyList来获取该类所有属性，然后for循环来赋值：<img src="https://lh3.googleusercontent.com/-BQyccu_D3SU/WVR1ddl7g5I/AAAAAAAAACQ/iGa4b_4anzM0PsKCX-da5uVZguXdG59igCLcBGAs/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-06-22+%25E4%25B8%258B%25E5%258D%25884.14.32.png" alt="赋值" title="example1.png"> ，for循环中先获取属性名称，利用kvc来为对象赋值，因为model对象与self对象有相同属性，所以可以完全赋值</li>
+</ol>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/04/“关于UISearchController的释放问题”/" itemprop="url">
-              
-                <span itemprop="name">“关于UISearchController的释放问题”</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/01/如何做到模块化代码/" rel="prev" title="如何做到模块化代码">
+                如何做到模块化代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-04T10:55:23+08:00"
-              content="2017-05-04" >
-          05-04
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -547,6 +674,12 @@ O.push(A)
 
 
           
+<div class="comments" id="comments">
+
+<div id="uyan_frame"></div>
+
+</div>
+
 
         </div>
         
@@ -566,8 +699,17 @@ O.push(A)
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -658,6 +800,22 @@ O.push(A)
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc-model-self-model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候-，由于self-model与vc-model指向同一个对象，会让self-model跟着改变，那当我们pop会这个界面时-，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢？"><span class="nav-number">1.</span> <span class="nav-text">我们经常会遇到这一种情况：在界面push的时候会将这个界面的值传到下个界面，一般情况下使用vc.model = self.model没任何问题，但是有一种情况下就是当传值得时候会改变vc的一些属性的值，但是这个时候 ，由于self.model与vc.model指向同一个对象，会让self.model跟着改变，那当我们pop会这个界面时 ，想在做一些操作的时候，发现与预期不符，那么怎么解决这个问题呢？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -787,11 +945,9 @@ O.push(A)
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
@@ -824,6 +980,10 @@ O.push(A)
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2133139"></script>
+      <!-- UY END -->
     
   
 
