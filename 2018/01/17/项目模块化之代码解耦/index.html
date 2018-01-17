@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,19 +90,17 @@
 
 
 
-<meta name="description" content="####最近遇到一个问题：在APP做一些操作的时候回到首页时候会出现首页白屏问题 但是别人的电脑不会有这个问题，所以就没有在意，但是最近发现给别人安装测试包的时候手机上会出现，作为一个特大bug 但是只有我的电脑会复现，所以这个问题就落在我的身上，由于问题模糊，幸亏测试提供步骤复现bug，折腾了几天 终于找到问题并解决  现在来说说自己的思路####">
-<meta name="keywords" content="iOS">
+<meta name="description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进怎么进行代码解耦呢？ 代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦">
+<meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“关于UISearchController的释放问题”">
-<meta property="og:url" content="http://mousechen.com/2017/05/04/“关于UISearchController的释放问题”/index.html">
+<meta property="og:title" content="项目模块化之代码解耦 ">
+<meta property="og:url" content="http://mousechen.com/2018/01/17/项目模块化之代码解耦/index.html">
 <meta property="og:site_name" content="陈浩的blog">
-<meta property="og:description" content="####最近遇到一个问题：在APP做一些操作的时候回到首页时候会出现首页白屏问题 但是别人的电脑不会有这个问题，所以就没有在意，但是最近发现给别人安装测试包的时候手机上会出现，作为一个特大bug 但是只有我的电脑会复现，所以这个问题就落在我的身上，由于问题模糊，幸亏测试提供步骤复现bug，折腾了几天 终于找到问题并解决  现在来说说自己的思路####">
-<meta property="og:image" content="https://lh3.googleusercontent.com/-ZVZbZ0PbNsg/WQqe1SmDdzI/AAAAAAAAABs/5BH2rQczY50Uh8jSMY8lwiIxQ6h_F065QCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-05-04+%25E4%25B8%258A%25E5%258D%258811.23.44.png">
-<meta property="og:updated_time" content="2017-05-05T07:18:40.000Z">
+<meta property="og:description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进怎么进行代码解耦呢？ 代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦">
+<meta property="og:updated_time" content="2018-01-17T03:14:24.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="“关于UISearchController的释放问题”">
-<meta name="twitter:description" content="####最近遇到一个问题：在APP做一些操作的时候回到首页时候会出现首页白屏问题 但是别人的电脑不会有这个问题，所以就没有在意，但是最近发现给别人安装测试包的时候手机上会出现，作为一个特大bug 但是只有我的电脑会复现，所以这个问题就落在我的身上，由于问题模糊，幸亏测试提供步骤复现bug，折腾了几天 终于找到问题并解决  现在来说说自己的思路####">
-<meta name="twitter:image" content="https://lh3.googleusercontent.com/-ZVZbZ0PbNsg/WQqe1SmDdzI/AAAAAAAAABs/5BH2rQczY50Uh8jSMY8lwiIxQ6h_F065QCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-05-04+%25E4%25B8%258A%25E5%258D%258811.23.44.png">
+<meta name="twitter:title" content="项目模块化之代码解耦 ">
+<meta name="twitter:description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进怎么进行代码解耦呢？ 代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://mousechen.com/2017/05/04/“关于UISearchController的释放问题”/"/>
+  <link rel="canonical" href="http://mousechen.com/2018/01/17/项目模块化之代码解耦/"/>
 
 
 
 
 
-  <title>“关于UISearchController的释放问题” | 陈浩的blog</title>
+  <title>项目模块化之代码解耦  | 陈浩的blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -494,7 +492,7 @@ O.push(A)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://mousechen.com/2017/05/04/“关于UISearchController的释放问题”/">
+    <link itemprop="mainEntityOfPage" href="http://mousechen.com/2018/01/17/项目模块化之代码解耦/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VasterChen">
@@ -511,7 +509,7 @@ O.push(A)
 
         
         
-          <h1 class="post-title" itemprop="name headline">“关于UISearchController的释放问题”</h1>
+          <h1 class="post-title" itemprop="name headline">项目模块化之代码解耦 </h1>
         
 
         <div class="post-meta">
@@ -523,8 +521,8 @@ O.push(A)
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T10:55:23+08:00">
-                2017-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T11:13:41+08:00">
+                2018-01-17
               </time>
             
 
@@ -533,28 +531,6 @@ O.push(A)
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -582,7 +558,25 @@ O.push(A)
       
 
       
-        <p>####<strong>最近遇到一个问题：在APP做一些操作的时候回到首页时候会出现首页白屏问题 但是别人的电脑不会有这个问题，所以就没有在意，但是最近发现给别人安装测试包的时候手机上会出现，作为一个特大bug 但是只有我的电脑会复现，所以这个问题就落在我的身上，由于问题模糊，幸亏测试提供步骤复现bug，折腾了几天 终于找到问题并解决  现在来说说自己的思路</strong>####<br>   <a id="more"></a><br>1.首先弄明白为什么白屏，由于首页的显示是根据viewWillAppear中请求数据来显示的  所以猜想是该方法没有走，打断点在viewWillAppear以及viewWillDisAppear中 发现回到首页后 viewWillAppear走了，但是离开的时候viewWillDisAppear没走，所以回来的时候viewWillAppear也不会走，所以造成了白屏问题<br>2.那么是什么造成的呢？一般道理的话不可能视图消失了viewWillDisAppear不走，因为复现bug的时候发现很多视图没有被释放，所以猜想是因为视图没释放造成遮盖造成viewWillDisAppear没有走（但是常理来说不管多少视图没释放也不应该会有这个问题，所以这也是只有的我的电脑会复现这个bug的原因）。<br>3.接下来就是释放视图了，基本视图没释放都是因为与block进行了循环引用导致的，一步步的把所有的视图释放之后，之后发现UISearchController这个类有问题，因为只要有问题的时候会发现这个类都不会被释放，所以猜想是这个类造成的<br>4.怎么证明是UISearchController的问题呢？ 我的做法是先利用UISearchBar代替UISearchController来走整个流程，发现不会出现问题，然后换回UISearchController，将UISearchController的view置灰，然后走流程<img src="https://lh3.googleusercontent.com/-ZVZbZ0PbNsg/WQqe1SmDdzI/AAAAAAAAABs/5BH2rQczY50Uh8jSMY8lwiIxQ6h_F065QCLcB/s0/%25E5%25B1%258F%25E5%25B9%2595%25E5%25BF%25AB%25E7%2585%25A7+2017-05-04+%25E4%25B8%258A%25E5%258D%258811.23.44.png" alt="bug图片" title="屏幕快照 2017-05-04 上午11.23.44.png">，发现UISearchController全程在屏幕上并没有释放，但是不影响操作，所以现在大致确定问题了<br>5.UISearchBar只是测试，不可能出现问题就替换掉的，所以还是要解决问题，怎么释放掉呢？做了很多操作，包括手动将controller置为nil，移除SearchBar第一响应者，但是不行，然后发现点击cancel按钮会释放，所以想法就是在页面跳转的时候在调一下系统的cancel方法，发现并没有什么卵用，反正就是试了各种方法<br>6.解决办法：快放弃的时候发现UISearchController中有个active属性，当时抱着死马当活马医的心情，在跳转的时讲其置为NO ，发现竟然释放了。</p>
+        <p><strong>为什么要项目模块化？</strong></p>
+<ol>
+<li>首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动</li>
+<li>其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进<br><strong>怎么进行代码解耦呢？</strong></li>
+<li>代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦呢？ 答案当然是runtime，因为runtime是利用字符串来获取类以及类中的属性，所以我们可以认为是毫无耦合性，当然runtime最大的缺点就是当我们修改某些类或者属性名称时，runtime并不会报错，但是流程却走不下去了，所以，如何处理好这些获取的属性的字符串 是非常重要的。</li>
+<li>由于耦合基本只存在于控制器中，所以首要是解除控制器的耦合，怎么解呢？我们使用了路由跳转的方式，也就是通过类名来获取实例对象：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+(void)load</div><div class="line">&#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        NSLog(@&quot;%@&quot;,CLASS_URL);</div><div class="line">        [NDJRouter registerURLPattern:CLASS_URL toObjectHandler:^id(NSDictionary *routerParameters)</div><div class="line">         &#123;</div><div class="line">              //初始化对象</div><div class="line">             id vc = [self new];</div><div class="line">             // configBlock中是对父控制器中控制传值和调用的block的注册</div><div class="line">             [vc configBlock];</div><div class="line">             return vc;</div><div class="line">         &#125;];</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>我们利用了load在类加载的时候触发的特性，在其中通过类似网址的形式注册多个不同的blcok，一般是 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//注册类的URL</div><div class="line">#define CLASS_URL  [NSString stringWithFormat:@&quot;xxxx://%@/%@&quot;,[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleExecutableKey],NSStringFromClass(self)]</div><div class="line">//获取类得URL，每个类都可以这样写</div><div class="line">#define URL_FOR_CLASS(class) [NSString stringWithFormat:@&quot;ngariDoctor://%@/%@&quot;,[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleExecutableKey],(class)]</div></pre></td></tr></table></figure>
+<p>当我们需要某个类时，只需要利用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[NDJRouter objectForURL:URL_FOR_CLASS(@&quot;类名&quot;)]</div></pre></td></tr></table></figure></p>
+<p>因为这个时候回调block，初始化控制器对象并返回对象，就可以了。</p>
+<ol>
+<li><strong>那么如何传递参数呢  以及调用方法？</strong><br>我们在基础父类控制器的定义了几种block<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">typedef void(^__returnBack)(NDBaseViewController *blockVC,id object);</div><div class="line">typedef void (^__setAttribute)(NSString*attributeName,...);</div><div class="line">typedef id (^__getAttribute)(NSString*attributeName) ;</div><div class="line">typedef id (^__fucntion)(NSString*funtionName,...) ;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>第一种是用与回调的block，参数是当前控制器和需要回调的参数，用于替换掉所有的代理传值（因为代理传值耦合很大），第二种是利用属性名称传值，第三种是获取某个类得某个属性，第四种是调用方法具体使用方法就是这种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">BaseViewController *recipeDetailVC =  [NDJRouter objectForURL:URL_FOR_CLASS(@&quot;NewRecipeInfoViewController&quot;)];</div><div class="line">    //赋值</div><div class="line">    recipeDetailVC.setAttribute(@&quot;recipeId&quot;,recipeId);</div><div class="line">    //调用方法</div><div class="line">    recipeDetailVC.function(@&quot;loadWorkPlaceArray&quot;);</div><div class="line">    recipeDetailVC.hidesBottomBarWhenPushed = YES;</div><div class="line">    [self.fromViewController.navigationController pushViewController:recipeDetailVC animated:YES];</div><div class="line">    recipeDetailVC.returnBackBlock = ^(NDBaseViewController *blockVC, id object) &#123;</div><div class="line">      //block回调之后需要做的操作</div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<p><strong>上面是block的回调，注册的时候就是在load方法中初始化对象的时候完成的</strong></p>
 
       
     </div>
@@ -610,12 +604,6 @@ O.push(A)
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
-          
-        </div>
-      
 
       
         
@@ -625,18 +613,14 @@ O.push(A)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/01/如何做到模块化代码/" rel="next" title="如何做到模块化代码">
-                <i class="fa fa-chevron-left"></i> 如何做到模块化代码
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/14/获取Healthkit读写权限，让你的步数永远第一名/" rel="prev" title="获取Healthkit读写权限，让你的步数永远第一名">
-                获取Healthkit读写权限，让你的步数永远第一名 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/29/关于对象实现copy协议时属性赋值的问题/" rel="prev" title="关于copy协议中如何简便的为对象赋值">
+                关于copy协议中如何简便的为对象赋值 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
