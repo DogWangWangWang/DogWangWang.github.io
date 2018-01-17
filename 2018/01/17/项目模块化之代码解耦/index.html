@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进怎么进行代码解耦呢？ 代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦">
+<meta name="description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进">
 <meta name="keywords">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目模块化之代码解耦 ">
 <meta property="og:url" content="http://mousechen.com/2018/01/17/项目模块化之代码解耦/index.html">
 <meta property="og:site_name" content="陈浩的blog">
-<meta property="og:description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进怎么进行代码解耦呢？ 代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦">
-<meta property="og:updated_time" content="2018-01-17T03:14:24.149Z">
+<meta property="og:description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进">
+<meta property="og:updated_time" content="2018-01-17T07:00:36.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目模块化之代码解耦 ">
-<meta name="twitter:description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进怎么进行代码解耦呢？ 代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦">
+<meta name="twitter:description" content="为什么要项目模块化？  首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动 其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进">
 
 
 
@@ -561,7 +561,8 @@ O.push(A)
         <p><strong>为什么要项目模块化？</strong></p>
 <ol>
 <li>首先是因为出现了这个需求，我们是一个为医院提供服务的APP，但是某些医院希望使用某个单独功能 而并非全部，希望能够将单独功能打成一个APP，所以直接导致了这个项目的启动</li>
-<li>其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进<br><strong>怎么进行代码解耦呢？</strong></li>
+<li>其次是因为项目已经很大，模块间的耦合相对严重，修改一些东西 可能牵扯到很多其他地方，所以为了解耦，也促使了这次项目的推进<a id="more"></a>
+<strong>怎么进行代码解耦呢？</strong></li>
 <li>代买解耦最重要的就是减少类间的相互依赖，什么方法能最大程度的解耦呢？ 答案当然是runtime，因为runtime是利用字符串来获取类以及类中的属性，所以我们可以认为是毫无耦合性，当然runtime最大的缺点就是当我们修改某些类或者属性名称时，runtime并不会报错，但是流程却走不下去了，所以，如何处理好这些获取的属性的字符串 是非常重要的。</li>
 <li>由于耦合基本只存在于控制器中，所以首要是解除控制器的耦合，怎么解呢？我们使用了路由跳转的方式，也就是通过类名来获取实例对象：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+(void)load</div><div class="line">&#123;</div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        NSLog(@&quot;%@&quot;,CLASS_URL);</div><div class="line">        [NDJRouter registerURLPattern:CLASS_URL toObjectHandler:^id(NSDictionary *routerParameters)</div><div class="line">         &#123;</div><div class="line">              //初始化对象</div><div class="line">             id vc = [self new];</div><div class="line">             // configBlock中是对父控制器中控制传值和调用的block的注册</div><div class="line">             [vc configBlock];</div><div class="line">             return vc;</div><div class="line">         &#125;];</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
